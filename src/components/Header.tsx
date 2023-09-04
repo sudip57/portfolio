@@ -28,7 +28,7 @@ const Header = () => {
                 className={clsx(
                   'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300',
                   {
-                    'text-gray-950 dark:text-gray-50': active === link.name,
+                    'text-gray-950 dark:text-white': active === link.name,
                   },
                 )}
                 onClick={() => {
