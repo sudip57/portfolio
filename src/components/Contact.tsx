@@ -2,26 +2,31 @@ import { FaPaperPlane } from 'react-icons/fa'
 import SectionHeading from './SectionHeading'
 import { motion } from 'framer-motion'
 import useSectionInView from '../libs/hooks'
-import { ChangeEvent, useState } from 'react'
-
+import { FormEvent } from 'react'
+import emailjs from '@emailjs/browser'
 const Contact = () => {
   const { ref } = useSectionInView('Contact')
-  const [formState, setFormState] = useState({})
-  // const config = {
-  //   Username: 's.sudippaudel@gmail.com',
-  //   Password: '099E39D1F5788D1FB28D690021D79B02AF23',
-  //   Host: 'smtp.elasticemail.com',
-  //   Port: 2525,
-  //   To: 'them@website.com',
-  //   From: 'you@isp.com',
-  //   Subject: 'This is the subject',
-  //   Body: 'And this is the body',
-  // }
 
-  const changeHandler = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormState({ ...formState, [event.target.value]: event.target.value })
+  const sendEmail = (e: FormEvent) => {
+    e.preventDefault()
+    const formElement = e.target as HTMLFormElement
+
+    emailjs
+      .sendForm(
+        'service_iwwft67',
+        'template_arbpsxw',
+        formElement,
+        'U_GF7ZDhCoLYi93jm',
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        },
+      )
+    formElement.reset()
   }
   return (
     <motion.section
@@ -49,7 +54,10 @@ const Contact = () => {
         </a>{' '}
         or through this form.
       </p>
-      <form className="mt-10 flex flex-col dark:text-black">
+      <form
+        className="mt-10 flex flex-col dark:text-black"
+        onSubmit={sendEmail}
+      >
         <input
           type="email"
           className="h-14 rounded-lg px-4 borderBlack dark:bg-opacity-80 dark:bg-white dark:focus:bg-opacity-100 transition-all dark:outline-none"
@@ -57,15 +65,13 @@ const Contact = () => {
           name="email"
           required
           maxLength={500}
-          onChange={changeHandler}
         />
         <textarea
           className="h-52 my-3 rounded-lg borderBlack p-4 resize-none dark:bg-opacity-80 dark:bg-white dark:focus:bg-opacity-100 transition-all dark:outline-none"
           placeholder="Your message"
-          name="textarea"
+          name="message"
           required
           maxLength={500}
-          onChange={changeHandler}
         />
         <button
           type="submit"
