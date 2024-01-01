@@ -72,7 +72,7 @@ export const projectsData = [
       'Seamlessly connect buyers and sellers with this modern web platform. Explore stunning listings powered by Firebase, and a sleek user interface crafted with Tailwind.',
     tags: ['React', 'Firebase', 'Tailwind', 'React Leaflet', 'Geocoding Api'],
     imageUrl: marketPlaceImg,
-    link: 'https://housemarketplace-psi.vercel.app',
+    link: 'https://house-marketlace.netlify.app',
   },
   {
     title: 'React Blog',
@@ -98,10 +98,13 @@ export const skillsData = [
   'JavaScript',
   'TypeScript',
   'React',
+  'Next.js',
   'Git',
   'Tailwind',
   'Redux',
   'Rechart',
   'Firebase',
   'Framer Motion',
+  'Prisma',
+  'MongoDB',
 ] as const

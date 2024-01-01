@@ -53,7 +53,7 @@ const Intro = () => {
         <span className="font-bold">front-end developer</span> with{' '}
         <span className="font-bold">1 years</span> of experience. I enjoy
         building <span className="italic">sites & apps</span>. My focus is{' '}
-        <span className="underline">React</span>.
+        <span className="underline">React(Next.js)</span>.
       </motion.h1>
       <motion.div
         className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"
@@ -75,7 +75,7 @@ const Intro = () => {
         </HashLink>
         <a
           className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition-all cursor-pointer border border-black/10 dark:bg-white/10 dark:text-white/60"
-          href="/public/CV.pdf"
+          href="/CV.pdf"
           download
         >
           Download CV <HiDownload />
